@@ -1,4 +1,4 @@
-package br.ucsal.app;
+package br.ucsal.app.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/autenticar")
-public class ExemploAnnotationSevlet extends HttpServlet{
+public class AutenticarController extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -19,11 +19,11 @@ public class ExemploAnnotationSevlet extends HttpServlet{
 		String usuario = req.getParameter("usuario");
 		String senha = req.getParameter("senha");
 
-		if (usuario != null) {
+		if (usuario != null && !usuario.isEmpty() && !usuario.isBlank()) {
 			if (usuario.equalsIgnoreCase(senha)) {
-				req.getRequestDispatcher("home.jsp").forward(req, resp);
+				resp.sendRedirect("./home.jsp");
 			} else {
-				resp.sendRedirect("./login.jsp");
+				resp.sendRedirect("./index.jsp");
 			}
 		}
 	}

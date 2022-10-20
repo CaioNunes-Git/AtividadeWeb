@@ -8,8 +8,8 @@
 </head>
 <body>
 <form action="./autenticar" method="post">
-    Usuario: <input name="usuario" type="text"></input> <br>
-    Senha: <input name="senha" type="password"></input> <br>
+    Usuario: <input name="usuario" type="text"/> <br>
+    Senha: <input name="senha" type="password"/> <br>
     <button type="submit">Enviar</button>
 </form>
 </body>

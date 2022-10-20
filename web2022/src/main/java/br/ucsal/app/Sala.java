@@ -2,7 +2,6 @@ package br.ucsal.app;
 
 public class Sala {
 
-    private Integer id;
     private String numSala;
     private String andar;
     private Integer qtdMaxAlunos;
@@ -11,10 +10,10 @@ public class Sala {
     public Sala(){
     }
 
-    public Sala(String numSala, String andar, Integer qtdMaxAlunos, String qtdMaquinas) {
+    public Sala(String numSala, String andar, String qtdMaxAlunos, String qtdMaquinas) {
         this.numSala = numSala;
         this.andar = andar;
-        this.qtdMaxAlunos = qtdMaxAlunos;
+        setQtdMaxAlunos(qtdMaxAlunos);
         setQtdMaquinas(qtdMaquinas);
     }
 
@@ -24,14 +23,6 @@ public class Sala {
 
     public void setNumSala(String numSala) {
         this.numSala = numSala;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getAndar() {
@@ -46,8 +37,12 @@ public class Sala {
         return qtdMaxAlunos;
     }
 
-    public void setQtdMaxAlunos(Integer qtdMaxAlunos) {
-        this.qtdMaxAlunos = qtdMaxAlunos;
+    public void setQtdMaxAlunos(String qtdMaxAlunos) {
+        if(qtdMaxAlunos == null || qtdMaxAlunos.equals("")){
+            this.qtdMaxAlunos = 0;
+        } else {
+            this.qtdMaxAlunos = Integer.parseInt(qtdMaxAlunos);
+        }
     }
 
     public Integer getQtdMaquinas() {
